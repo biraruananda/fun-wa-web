@@ -11,35 +11,19 @@ module.exports = {
 
     await fakeTyping(chat);
 
-    await msg.reply("⏳ tunggu respon ai...");
-
-    const logPath = path.join(__dirname, "../ai_log.txt");
-
-    let memory = "";
-    if (fs.existsSync(logPath)) {
-      const lines = fs.readFileSync(logPath, "utf-8").trim().split("\n");
-      const lastLines = lines.slice(-10).join("\n");
-      memory = `Berikut beberapa respon AI sebelumnya:\n${lastLines}\n\n`;
-    }
+    const loadingMessage = await msg.reply("⏳ tunggu respon ai...");
 
     await fakeTyping(chat);
 
     try {
       const response = await openai.chat.completions.create({
         model: "gpt-5-chat",
-        messages: [
-          {
-            role: "system",
-            content: "Kamu adalah bot yang punya memori obrolan sebelumnya.",
-          },
-          { role: "user", content: prompt },
-          { role: "user", content: memory },
-        ],
+        messages: [{ role: "user", content: prompt }],
       });
 
       const reply = response.choices[0].message.content;
+      loadingMessage.delete();
       msg.reply(reply);
-      fs.appendFileSync(logPath, `[${new Date().toLocaleString()}] ${reply}\n`);
     } catch (err) {
       console.error("Error AI:", err);
       msg.reply("❌ gipiptinya error bang");
