@@ -87,6 +87,7 @@ Bot ini mendukung chat berbasis OpenAI API.
 Pesan dari pengguna disaring, dan hanya output AI yang disimpan ke file ai_log.txt.
 
 Bot ini belum mendukung multi-device login bersamaan.
+```
 
 🧑‍💻 Kontributor
 Bilal Ananda — Developer & Maintainer
@@ -95,4 +96,3 @@ Bilal Ananda — Developer & Maintainer
 
 📜 Lisensi
 MIT License © 2025 Bilal Ananda
-```
