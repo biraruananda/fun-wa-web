@@ -1,0 +1,51 @@
+# Node modules
+node_modules/
+
+# Environment files (API keys, tokens, dsb)
+.env
+.env.local
+.env.development
+.env.production
+
+# Temporary folders & downloads
+temp/
+downloads/
+cache/
+output/
+*.tmp
+*.log
+temp_*
+
+# OS-specific junk files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE/editor config
+.vscode/
+.idea/
+*.swp
+
+# Build or compiled files
+dist/
+build/
+*.exe
+*.zip
+*.tar
+*.gz
+
+# WhatsApp session data
+.session/
+.session.json
+session.data.json
+auth_info.json
+.wwebjs_cache/
+.wwebjs_auth/
+
+
+# Chat log / AI memory
+chatlog.txt
+ai_log.txt
+
+# Misc
+package-lock.json
