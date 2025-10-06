@@ -1,60 +1,43 @@
-const fs = require("fs");
-const path = require("path");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+
 module.exports = {
-  ai: async (client, msg, openai, fakeTyping) => {
+  ai: async (client, msg, fakeTyping) => {
+    // Removed 'ai' from params since we'll initialize it here
     const chat = await msg.getChat();
-    const prompt = msg.body.slice(4).trim();
-    if (!prompt) {
-      msg.reply("Isi pesan setelah .ai");
-      return;
+    const userPrompt = msg.body.slice(4).trim(); // Changed 'prompt' to 'userPrompt' for clarity
+
+    if (!userPrompt) {
+      return msg.reply("Please provide a message after .ai");
     }
 
     await fakeTyping(chat);
-
-    const loadingMessage = await msg.reply("⏳ tunggu respon ai...");
-
-    await fakeTyping(chat);
+    const loadingMsg = await msg.reply("⏳ Getting AI response..."); // More general loading message
 
     try {
-      const response = await openai.chat.completions.create({
-        model: "gpt-5-chat",
-        messages: [{ role: "user", content: prompt }],
-      });
+      // Initialize the Google Generative AI client
+      // IMPORTANT: Replace 'YOUR_API_KEY' with your actual Gemini API key
+      const genAI = new GoogleGenerativeAI(
+        process.env.GEMINI_API_KEY || "YOUR_API_KEY"
+      );
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
 
-      const reply = response.choices[0].message.content;
-      loadingMessage.delete();
-      msg.reply(reply);
+      const result = await model.generateContent(userPrompt);
+      const response = await result.response;
+      const text = response.text();
+
+      await loadingMsg.delete(true);
+      if (!text) {
+        return msg.reply("⚠️ No response from AI.");
+      }
+      await msg.reply(text);
     } catch (err) {
-      console.error("Error AI:", err);
-      msg.reply("❌ gipiptinya error bang");
+      console.error("❌ Error in AI command:", err);
+      await loadingMsg.delete(true);
+      msg.reply("❌ AI error, please try again later.");
     }
   },
-
-  ais: async (client, msg, openai, fakeTyping) => {
-    const chat = await msg.getChat();
-    const prompt = msg.body.slice(5).trim();
-    if (!prompt) {
-      msg.reply("pake message boy");
-      return;
-    }
-
-    await fakeTyping(chat);
-
-    await msg.reply("⏳ tunggu respon ai...");
-
-    await fakeTyping(chat);
-
-    try {
-      const response = await openai.chat.completions.create({
-        model: "gemini-search",
-        messages: [{ role: "user", content: prompt }],
-      });
-
-      const reply = response.choices[0].message.content;
-      msg.reply(reply);
-    } catch (err) {
-      console.error("ERROR AI:", err);
-      msg.reply("❌ search engine error");
-    }
+  ais: async (client, msg, fakeTyping) => {
+    const text = `Lagi maintance, coba lagi nanti. atau pake .ai`;
+    msg.reply(text);
   },
 };

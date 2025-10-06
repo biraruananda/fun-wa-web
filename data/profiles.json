@@ -1,0 +1,54 @@
+{
+  "40527311454235@lid": {
+    "xp": 9993584,
+    "level": 10008,
+    "coins": 9999999,
+    "role": "User",
+    "registeredAt": "2025-10-06T17:04:04.059Z",
+    "lastActive": "2025-10-06T20:13:47.676Z",
+    "username": "Unknown"
+  },
+  "7387930992856@lid": {
+    "xp": 0,
+    "level": 1,
+    "coins": 0,
+    "role": "User",
+    "registeredAt": "2025-10-06T17:04:31.914Z",
+    "lastActive": "2025-10-06T17:13:57.666Z"
+  },
+  "275608185622774@lid": {
+    "xp": 90,
+    "level": 1,
+    "coins": 0,
+    "role": "User",
+    "registeredAt": "2025-10-06T17:10:02.117Z",
+    "lastActive": "2025-10-06T19:33:15.592Z",
+    "username": "Unknown"
+  },
+  "6283136240962@c.us": {
+    "xp": 0,
+    "level": 1,
+    "coins": 0,
+    "role": "User",
+    "registeredAt": "2025-10-06T17:12:55.877Z",
+    "lastActive": "2025-10-06T17:12:55.984Z"
+  },
+  "117892590866627@lid": {
+    "username": "Unknown",
+    "xp": 50,
+    "level": 1,
+    "coins": 0,
+    "role": "User",
+    "registeredAt": "2025-10-06T17:26:58.360Z",
+    "lastActive": "2025-10-06T19:51:43.135Z"
+  },
+  "6282116504737@c.us": {
+    "username": "Unknown",
+    "xp": -30,
+    "level": 0,
+    "coins": 0,
+    "role": "User",
+    "registeredAt": "2025-10-06T18:55:47.699Z",
+    "lastActive": "2025-10-06T19:48:46.473Z"
+  }
+}
