@@ -26,10 +26,7 @@ Dibangun menggunakan **whatsapp-web.js**, **OpenAI API**, dan beberapa library p
 
 ---
 
-## ⚙️ Instalasi
-
-### 1. Clone repository
-
+# ⚙️ Instalasi
 ```bash
 git clone https://github.com/username/whatsapp-bot.git
 cd whatsapp-bot
@@ -59,7 +56,11 @@ Copy code
 node index.js
 Saat pertama kali dijalankan, scan QR Code yang muncul di terminal untuk login WhatsApp.
 
-📁 Struktur Direktori
+```
+#
+# 📁 Struktur Direktori
+```bash
+
 pgsql
 Copy code
 whatsapp-bot/
@@ -87,8 +88,13 @@ Bot ini mendukung chat berbasis OpenAI API.
 Pesan dari pengguna disaring, dan hanya output AI yang disimpan ke file ai_log.txt.
 
 Bot ini belum mendukung multi-device login bersamaan.
-```
 
+```
+#
+# 📝Information
+
+
+```bash
 🧑‍💻 Kontributor
 Bilal Ananda — Developer & Maintainer
 
@@ -96,3 +102,4 @@ Bilal Ananda — Developer & Maintainer
 
 📜 Lisensi
 MIT License © 2025 Bilal Ananda
+```
