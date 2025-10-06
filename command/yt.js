@@ -36,7 +36,6 @@ module.exports = async function ytCommand(client, msg, fakeTyping) {
     msg.reply(`⬇️ Sedang mengunduh *${title}*...`);
 
     if (cmd === ".ytmp3") {
-      // Audio only
       await new Promise((resolve, reject) => {
         ffmpeg(ytdl(url, { quality: "highestaudio" }))
           .audioBitrate(128)
@@ -50,7 +49,6 @@ module.exports = async function ytCommand(client, msg, fakeTyping) {
         caption: `🎧 *${title}*\nBerhasil diunduh!`,
       });
     } else if (cmd === ".ytmp4") {
-      // Video
       await new Promise((resolve, reject) => {
         ffmpeg(ytdl(url, { quality: "highestvideo" }))
           .save(outputPath)
