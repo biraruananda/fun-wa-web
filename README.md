@@ -120,8 +120,3 @@ Bilal Ananda — Developer & Maintainer
 
 📜 Lisensi
 MIT License © 2025 Bilal Ananda
-
-yaml
-Copy code
-
----
